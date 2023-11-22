@@ -18,8 +18,7 @@
 
 
 @isset($fornecedores)
-    @php $i = 0 @endphp
-    @foreach($fornecedores as $indice => $fornecedor)
+    @forelse($fornecedores as $indice => $fornecedor)
         Fornecedor: {{ $fornecedor['nome'] }}
         </br>
         Status: {{ $fornecedor['status'] }}
@@ -29,8 +28,9 @@
         Telefone: {{ $fornecedor['ddd'] ?? '' }} {{ $fornecedor['telefone'] ?? '' }}
         </br>
         <hr>
-        @php $i++ @endphp
-    @endforeach
+    @empty
+        Não existem fornecedores cadastrados!
+    @endforelse
 @endisset
 
 
