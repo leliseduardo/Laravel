@@ -16,10 +16,18 @@
 
 {{-- @dd($fornecedores) // Imprime um array no navegador --}}
 
-@if(count($fornecedores) > 0 && count($fornecedores) < 10)
-    <h3> Existem alguns fornecedores </h3>
-@elseif(count($fornecedores) >= 10)
-    <h3> Existem vários fornecedores </h3>
-@else
-    <h3> Não existe nenhum fornecedor </h3>
+Fornecedor: {{ $fornecedores[0]['nome'] }}
+</br>
+Status: {{ $fornecedores[0]['status'] }}
+
+@if( !($fornecedores[0]['status'] == 'S'))
+    <h3> Fornecedor inativo </h3>
 @endif
+
+@unless($fornecedores[0]['status'] == "S")
+    <h3> Fornecedor inativo </h3>
+@endunless
+
+
+
+
