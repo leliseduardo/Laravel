@@ -18,13 +18,13 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', 'PrincipalController@principal');
-
 Route::get('/sobre-nos', 'SobreNosController@sobreNos');
-
 Route::get('/contato', 'ContatoController@contato');
+Route::get('/login', function(){ return 'Login';});
 
-Route::get('/contato/{nome}/{categoria_id}',
-      function(string $nome, int $categoria_id){
-        echo "Estamos aqui: $nome - $categoria_id";
-      }
-)->where('categoria_id', '[0-9]+')->where('nome', '[A-Za-z]+');
+Route::prefix('/app')->group(function(){
+    Route::get('/clientes', function(){ return 'clientes';});
+    Route::get('/fornecedores', function(){ return 'fornecedores';});
+    Route::get('/produtos', function(){ return 'produtos';});
+});
+
