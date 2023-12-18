@@ -17,4 +17,4 @@ class Fornecedor extends Model
     protected $fillable = ['nome', 'site', 'uf', 'email'];
 }
 
-// Comentario teste teste 2
+// Comentario teste
